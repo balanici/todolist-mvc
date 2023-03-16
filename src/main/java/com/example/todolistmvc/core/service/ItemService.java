@@ -26,7 +26,7 @@ public class ItemService {
         return itemDto;
     }
 
-    public ItemDto getItemById(UUID id) {
+    public ItemDto getItemByUuid(UUID uuid) {
         ItemDto itemDto = getItemDto();
 
         return itemDto;
@@ -38,12 +38,12 @@ public class ItemService {
         return itemDto;
     }
 
-    public ItemDto updateItem(ItemDto itemDto) {
+    public ItemDto updateItemByUuid(UUID uuid, ItemDto itemDto) {
 
         return itemDto;
     }
 
-    public void deleteItemById(UUID id) {
+    public void deleteItemByUuid(UUID uuid) {
 
         //delete item from DB
     }

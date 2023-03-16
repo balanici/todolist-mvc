@@ -14,5 +14,5 @@ public class ItemResponse {
     private String itemName;
     private String itemDescription;
 
-    private UUID listId;
+    private UUID listUuid;
 }
