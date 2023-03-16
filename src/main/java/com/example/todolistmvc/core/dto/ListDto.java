@@ -10,7 +10,7 @@ import java.util.UUID;
 @Setter
 @Builder
 public class ListDto {
-    private UUID id;
+    private UUID uuid;
     private String listName;
     private String listDescription;
 }

@@ -2,7 +2,6 @@ package com.example.todolistmvc.core.service;
 
 import com.example.todolistmvc.core.dto.ItemDto;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class ItemService {
 
     private ItemDto getItemDto() {
         ItemDto itemDto = new ItemDto();
-        itemDto.setId(UUID.randomUUID());
+        itemDto.setUuid(UUID.randomUUID());
         itemDto.setItemName("Item name");
         itemDto.setItemDescription("Item description");
         return itemDto;

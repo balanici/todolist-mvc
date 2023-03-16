@@ -10,7 +10,7 @@ import java.util.UUID;
 @Setter
 @Builder
 public class ItemResponse {
-    private UUID id;
+    private UUID uuid;
     private String itemName;
     private String itemDescription;
 

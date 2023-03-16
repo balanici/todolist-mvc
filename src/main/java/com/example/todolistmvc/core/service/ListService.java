@@ -2,7 +2,6 @@ package com.example.todolistmvc.core.service;
 
 import com.example.todolistmvc.core.dto.ListDto;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class ListService {
 
     public List<ListDto> getLists() {
         ListDto listDto = ListDto.builder()
-                .id(UUID.randomUUID())
+                .uuid(UUID.randomUUID())
                 .listName("List name")
                 .listDescription("List description")
                 .build();
@@ -24,9 +23,9 @@ public class ListService {
         return List.of(listDto);
     }
 
-    public ListDto getListById(UUID id) {
+    public ListDto getListById(UUID uuid) {
         ListDto listDto = ListDto.builder()
-                .id(UUID.randomUUID())
+                .uuid(UUID.randomUUID())
                 .listName("List name")
                 .listDescription("List description")
                 .build();
@@ -39,12 +38,12 @@ public class ListService {
         return listDto;
     }
 
-    public ListDto updateList(ListDto listDto) {
+    public ListDto updateList(UUID uuid, ListDto listDto) {
 
         return listDto;
     }
 
-    public void deleteListById(UUID id) {
+    public void deleteListById(UUID uuid) {
 
         //delete list from DB
     }
