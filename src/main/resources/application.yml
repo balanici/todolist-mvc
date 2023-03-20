@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: TodoList MVC
+
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/todolist
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 5
+
+  sql:
+    init:
+      mode: ALWAYS
+
+  jpa:
+    #    defer-datasource-initialization: true
+    generate-ddl: true
+    hibernate:
+#      ddl-auto: validate
+      ddl-auto: create-drop
+
+#  flyway:
+#    user: postgres
+#    password: postgres
+#    url: jdbc:postgresql://localhost:5432/todolist
+
+
+#debug: true

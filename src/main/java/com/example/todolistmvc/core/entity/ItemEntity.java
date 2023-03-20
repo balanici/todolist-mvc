@@ -1,18 +1,32 @@
 package com.example.todolistmvc.core.entity;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
-@RequiredArgsConstructor
+@Entity
+@Table(name = "items")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class ItemEntity {
-    private UUID id;
-    private String itemName;
-    private String itemDescription;
 
-    private UUID listId;
+    @Id
+    @Column(name = "uuid")
+    private UUID uuid;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "list_entity_uuid",
+            foreignKey = @ForeignKey(name = "fk_items__lists_uuid")
+    )
+    private ListEntity listEntity;
+
 }
