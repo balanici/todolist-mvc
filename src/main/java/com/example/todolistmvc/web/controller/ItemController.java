@@ -40,26 +40,26 @@ public class ItemController {
     }
 
     @GetMapping("/{itemUuid}")
-    public ResponseEntity<ItemResponse> getIteByUuid(@PathVariable UUID itemUuid) {
-        ItemDto itemDto = itemService.getItemByUuid(itemUuid);
+    public ResponseEntity<ItemResponse> getItemById(@PathVariable UUID itemUuid) {
+        ItemDto itemDto = itemService.getItemById(itemUuid);
         ItemResponse itemResponse = itemMapper.itemDtoToResponse(itemDto);
 
         return ResponseEntity.ok(itemResponse);
     }
 
     @PutMapping("/{itemUuid}")
-    public ResponseEntity<ItemResponse> updateItemByUuid(@PathVariable UUID itemUuid,
-                                                         @RequestBody ItemRequest itemRequest) {
+    public ResponseEntity<ItemResponse> updateItemById(@PathVariable UUID itemUuid,
+                                                       @RequestBody ItemRequest itemRequest) {
         ItemDto itemDto = itemMapper.itemRequestToDto(itemRequest);
-        ItemResponse itemResponse = itemMapper.itemDtoToResponse(itemService.updateItemByUuid(itemUuid, itemDto));
+        ItemResponse itemResponse = itemMapper.itemDtoToResponse(itemService.updateItemById(itemUuid, itemDto));
 
         return ResponseEntity.ok(itemResponse);
     }
 
     @DeleteMapping("/{itemUuid}")
-    public ResponseEntity<Void> deleteItemByUuid(@PathVariable UUID itemUuid) {
+    public ResponseEntity<Void> deleteItemById(@PathVariable UUID itemUuid) {
 
-        itemService.deleteItemByUuid(itemUuid);
+        itemService.deleteItemById(itemUuid);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
