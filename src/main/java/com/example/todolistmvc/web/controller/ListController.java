@@ -48,6 +48,7 @@ public class ListController {
     @PutMapping("/{listUuid}")
     public ResponseEntity<ListResponse> updateListByUuid(@PathVariable UUID listUuid, @RequestBody ListRequest listRequest) {
         ListDto listDto = listMapper.listRequestToDto(listRequest);
+        listDto = listService.updateList(listUuid, listDto);
         ListResponse listResponse = listMapper.listDtoToResponse(listService.updateList(listUuid, listDto));
         return new ResponseEntity<>(listResponse, HttpStatus.OK);
     }
