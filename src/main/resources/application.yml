@@ -18,13 +18,14 @@ spring:
     #    defer-datasource-initialization: true
     generate-ddl: true
     hibernate:
-      ddl-auto: validate
-#      ddl-auto: create-drop
+#      ddl-auto: validate
+      ddl-auto: create-drop
 
-  flyway:
-    user: postgres
-    password: postgres
-    url: jdbc:postgresql://localhost:5432/todolist
+#we don't need flyway for now
+#  flyway:
+#    user: postgres
+#    password: postgres
+#    url: jdbc:postgresql://localhost:5432/todolist
 
 
 #debug: true

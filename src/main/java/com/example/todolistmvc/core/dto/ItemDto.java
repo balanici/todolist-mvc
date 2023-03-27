@@ -8,6 +8,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder(toBuilder = true)
 public class ItemDto {
     private UUID uuid;
     private String itemName;
