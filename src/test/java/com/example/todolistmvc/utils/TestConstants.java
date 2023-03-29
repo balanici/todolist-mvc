@@ -4,6 +4,10 @@ import com.example.todolistmvc.core.dto.ItemDto;
 import com.example.todolistmvc.core.dto.ListDto;
 import com.example.todolistmvc.core.entity.ItemEntity;
 import com.example.todolistmvc.core.entity.ListEntity;
+import com.example.todolistmvc.web.dto.ItemRequest;
+import com.example.todolistmvc.web.dto.ItemResponse;
+import com.example.todolistmvc.web.dto.ListRequest;
+import com.example.todolistmvc.web.dto.ListResponse;
 
 import java.util.List;
 import java.util.UUID;
@@ -50,5 +54,37 @@ public class TestConstants {
                 LIST_DESCRIPTION,
                 List.of()
         );
+    }
+
+    public static ItemResponse itemResponse() {
+        return ItemResponse.builder()
+                .uuid(ITEM_ID)
+                .itemName(ITEM_NAME)
+                .itemDescription(ITEM_DESCRIPTION)
+                .build();
+    }
+
+    public static ItemRequest itemRequest() {
+        return ItemRequest.builder()
+                .uuid(ITEM_ID)
+                .itemName(ITEM_NAME)
+                .itemDescription(ITEM_DESCRIPTION)
+                .build();
+    }
+
+    public static ListResponse listResponse() {
+        return ListResponse.builder()
+                .uuid(LIST_ID)
+                .listName(LIST_NAME)
+                .listDescription(LIST_DESCRIPTION)
+                .build();
+    }
+
+    public static ListRequest listRequest() {
+        return ListRequest.builder()
+                .uuid(LIST_ID)
+                .listName(LIST_NAME)
+                .listDescription(LIST_DESCRIPTION)
+                .build();
     }
 }
