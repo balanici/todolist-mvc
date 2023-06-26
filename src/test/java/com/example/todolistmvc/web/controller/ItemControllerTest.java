@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.TestingAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -26,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ItemControllerTest {
 
     public static final String API_TODO_ITEMS_URI = "/api/todo-items";
+    public static final String API_PROTECTED_URI = "/api/protected"; //this to be added
 
     @MockBean
     private ItemService itemService;
@@ -133,5 +138,19 @@ class ItemControllerTest {
         mockMvc.perform(
                 delete(API_TODO_ITEMS_URI + "/" + ITEM_ID))
                 .andExpect(status().isNoContent());
+    }
+
+    //this is to be added somehow
+    @Test
+    void testProtectedResource() throws Exception {
+        String helloUri = "/hello";
+
+        SecurityContext contextHolder = SecurityContextHolder.createEmptyContext();
+        Authentication authentication = new TestingAuthenticationToken("username", "password", "ROLE_USER");
+        contextHolder.setAuthentication(authentication);
+        SecurityContextHolder.setContext(contextHolder);
+
+        mockMvc.perform(get(API_PROTECTED_URI + helloUri))
+            .andExpect(status().isOk());
     }
 }

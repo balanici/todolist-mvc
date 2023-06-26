@@ -29,6 +29,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,11 +60,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-test</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -122,32 +126,32 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
-<!--            we don't need flyway for now-->
-<!--            <plugin>-->
-<!--                <groupId>org.flywaydb</groupId>-->
-<!--                <artifactId>flyway-maven-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>generate-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>migrate</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <driver>org.postgresql.Driver</driver>-->
-<!--                    <url>jdbc:postgresql://localhost:5432/todolist</url>-->
-<!--                    <user>postgres</user>-->
-<!--                    <password>postgres</password>-->
-<!--                    <baselineOnMigrate>true</baselineOnMigrate>-->
-<!--                    <schemas>public</schemas>-->
-<!--                    <locations>-->
-<!--                        <location>-->
-<!--                            filesystem:src/main/resources/db/migration-->
-<!--                        </location>-->
-<!--                    </locations>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            we don't need flyway for now-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.flywaydb</groupId>-->
+            <!--                <artifactId>flyway-maven-plugin</artifactId>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <phase>generate-sources</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>migrate</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <configuration>-->
+            <!--                    <driver>org.postgresql.Driver</driver>-->
+            <!--                    <url>jdbc:postgresql://localhost:5432/todolist</url>-->
+            <!--                    <user>postgres</user>-->
+            <!--                    <password>postgres</password>-->
+            <!--                    <baselineOnMigrate>true</baselineOnMigrate>-->
+            <!--                    <schemas>public</schemas>-->
+            <!--                    <locations>-->
+            <!--                        <location>-->
+            <!--                            filesystem:src/main/resources/db/migration-->
+            <!--                        </location>-->
+            <!--                    </locations>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M9</version>
